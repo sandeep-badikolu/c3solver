@@ -101,8 +101,39 @@ void getFaces()
 	
 	char caraTrasera[3][3] = {{b_e1, b_a1, b_e2}, {b_a2, b_c, b_a3}, {b_e3, b_a2, b_e4}};
 	
+	//Definimos todo el estado del cubo como un array 3D
+	char estadoActual[6][3][3] = {{{l_e1, l_a1, l_e2}, {l_a2, l_c, l_a3}, {l_e3, l_a4, l_e4}}, {{d_e1, d_a1, d_e2}, {d_a2, d_c, d_a3}, {d_e3, d_a4, d_e4}}, {{r_e1, r_a1, r_e2}, {r_a2, r_c, r_a3}, {r_e3, r_a4, r_e4}}, {{u_e1, u_a1, u_e2}, {u_a2, u_c, u_a3}, {u_e3, u_a4, u_e4}}, {{b_e1, b_a1, b_e2}, {b_a2, b_c, b_a3}, {b_e3, b_a4, b_e4}}, {{f_e1, f_a1, f_e2}, {f_a2, f_c, f_a3}, {f_e3, f_a4, f_e4}}};
+	
+	//Mediante un loop por cada dimensión del array de estadoActual, se asignarán los colores del estado del cubo.
+	puts("Notacion de caras: L = 0, D = 1, R = 2, U = 3, B = 4, F = 5");
+	for(i = 0; i < 6; i++)
+	{
+		printf("Introduzca los colores de la cara %d \n", i);
+		for(j = 0; j < 3; j++)
+		{
+			for(k = 0; k < 3; k++)
+			{
+				estadoActual[i][j][k] = getchar();
+				//se agrega otro getchar para el enter del usuario
+				getchar();
+			}
+		}
+	}
 	
 	
-	return 0;
 	
+	//imprime en la consola el resultado del input del usuario
+	
+	//char estadoActual[6][3][3] = {{{l_e1, l_a1, l_e2}, {l_a2, l_c, l_a3}, {l_e3, l_a4, l_e4}}, {{d_e1, d_a1, d_e2}, {d_a2, d_c, d_a3}, {d_e3, d_a4, d_e4}}, {{r_e1, r_a1, r_e2}, {r_a2, r_c, r_a3}, {r_e3, r_a4, r_e4}}, {{u_e1, u_a1, u_e2}, {u_a2, u_c, u_a3}, {u_e3, u_a4, u_e4}}, {{b_e1, b_a1, b_e2}, {b_a2, b_c, b_a3}, {b_e3, b_a4, b_e4}}, {{f_e1, f_a1, f_e2}, {f_a2, f_c, f_a3}, {f_e3, f_a4, f_e4}}};
+	
+	for(i=0; i < 6; i++)
+	{
+		for(j=0; j < 3; j++)
+		{
+			printf("%c", estadoActual[i][j][0]);
+			printf("%c", estadoActual[i][j][1]);
+			printf("%c \n", estadoActual[i][j][2]);
+		}
+	}
+		
 }
