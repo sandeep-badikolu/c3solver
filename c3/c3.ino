@@ -1,18 +1,19 @@
 // Definición de los pines para controlar los motores.
+// Conexiones para el arduino nano/uno
 
-const int stepPinR = 22;
-const int stepPinL = 28;
-const int stepPinU = 34;
-const int stepPinD = 40;
-const int stepPinF = 46;
-const int stepPinB = 52;
+const int stepPinR = 13;
+const int stepPinL = 11;
+const int stepPinU = 9;
+const int stepPinD = 7;
+const int stepPinF = 5;
+const int stepPinB = 3;
 
-const int dirPinR = 23;
-const int dirPinL = 29;
-const int dirPinU = 35;
-const int dirPinD = 41;
-const int dirPinF = 47;
-const int dirPinB = 53;
+const int dirPinR = 12;
+const int dirPinL = 10;
+const int dirPinU = 8;
+const int dirPinD = 6;
+const int dirPinF = 4;
+const int dirPinB = 2;
 
 // Variable para guardar los datos recibidos
 char datos = 0;
