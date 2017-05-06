@@ -16,11 +16,17 @@ const int dirPinF = 4;
 const int dirPinB = 2;
 
 // Variable para guardar los datos recibidos
-char datos = 0;
+char solution[];
+
+// Variable que servirá para llenar la string
+char pasoEntrante;
 
 void setup() {
   //Iniciamos el /baud rate/ de lacomunicación serial para la transmisión de datos
   Serial.begin(9600);
+  if(Serial){
+    Serial.println("Listo..");  
+  }
   //Definimos los pins de cada motor como salidas
   pinMode(stepPinR, OUTPUT);
   pinMode(dirPinR, OUTPUT);
@@ -34,15 +40,23 @@ void setup() {
   pinMode(dirPinF, OUTPUT);
   pinMode(stepPinB, OUTPUT);
   pinMode(dirPinB, OUTPUT);
+  // La solución se irá recibiendo de paso a paso la solución, iniciamos la string
+  solution = "";
 }
 
 void loop() {
-  if(Serial.available() > 0) {
-    datos = Serial.read();
-    Serial.print(datos);
-    Serial.print("\n");
+  while(Serial.available()) { // Mientras se reciba algo, añade el paso entrante a la array de solución 
+    pasoEntrante = (char)Serial.read();
+    solution[] += pasoEntrante;
     
-    switch(datos){
+    if(pasoEntrante == "\0"){
+      break;
+    }
+           
+  }
+
+  for(){
+    switch(pasoEntrante){
       case 'R':
       // Definimos la dirección en la que se moverá el motor, en este caso en sentido horario.
         digitalWrite(dirPinR, HIGH);
@@ -179,6 +193,6 @@ void loop() {
         Serial.print("No se reconoció el movimiento\n");
         break;
     }
-    
   }
+  
 }
