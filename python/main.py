@@ -1,5 +1,6 @@
 import kociemba
 import serial
+import config
 
 # Todo List
 
@@ -7,12 +8,9 @@ import serial
 
 def con_serial():
     # Esta función ejecuta la conexión serial con el arduino, la comprueba
-    puerto = input("Por favor, ingrese el puerto en el que está conectado el Arduino \n")
-    puerto = '/dev/tty' + puerto # Linux way
-    #Si se está en windows, comentar la línea anterior
-    print("El puerto configurado es: " + puerto)
+    print("El puerto configurado es: " + config.puerto)
     #pOpcion = input("¿Continuar? (y/n)")
-    global ser = serial.Serial(puerto, 9600) # Esto iniciará la conexión serial con el arduino en un baud rate de 9600
+    config.ser = serial.Serial(config.puerto, 9600) # Esto iniciará la conexión serial con el arduino en un baud rate de 9600
     # La conexión puede ser por USB si el arduino está conectado, o por bluetooth, eso depende del puerto que se especifique
 
     # Comprobamos que la conexion se haya completado mandando un byte y leyendo
@@ -21,6 +19,7 @@ def con_serial():
 
 
 def main():
+    config.port_and_ser()
     print("Por favor, introduce el estado actual del cubo")
 
 
