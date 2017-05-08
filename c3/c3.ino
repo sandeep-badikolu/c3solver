@@ -41,7 +41,7 @@ void setup() {
   pinMode(stepPinB, OUTPUT);
   pinMode(dirPinB, OUTPUT);
   // La solución se irá recibiendo de paso a paso la solución, iniciamos la string
-  solution = "";
+  // solution = "";
 }
 
 void loop() {
@@ -49,10 +49,9 @@ void loop() {
     pasoEntrante = (char)Serial.read();
     solution[] += pasoEntrante;
     
-    if(pasoEntrante == "\0"){
+    if(pasoEntrante == "x"){
       break;
     }
-           
   }
 
   for(){
