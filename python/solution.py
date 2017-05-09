@@ -1,4 +1,5 @@
 import kociemba
+import config
 
 def areTwoOrPrime(filteredSolve):
     # No sé filtrar ni usar bien Python, feelsBadMan
@@ -24,15 +25,17 @@ def main():
     cube = getCube()
     stdSol = kociemba.solve(cube)
     sol = ''.join(stdSol.split())
-    listSol = []
     filteredSolve = sol
-    fSolve = areTwoOrPrime(filteredSolve)
+    config.fSolve = areTwoOrPrime(filteredSolve)
+    config.listSol = list(config.fSolve)
+    config.length = len(config.listSol)
+    #Debug
     print("Standard output from algorithm " + stdSol)
     print("No whitespace output " + sol)
     print("a continuación se imprimirá la solución filtrada de acuerdo al sketch de Arduino ")
-    print("after filtering " + fSolve)
-    listSol = list(fSolve)
-    print(listSol)
+    print("after filtering " + config.fSolve)
+    print(config.listSol)
+    print(config.length)
 
 if __name__ == '__main__':
     main()
