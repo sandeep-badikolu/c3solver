@@ -2,3 +2,6 @@
 puerto = ""
 ser = ""
 baudR = 0
+fSolve = ""
+length = 0
+listSol = []
