@@ -21,8 +21,9 @@ String solution;
 void setup() {
   //Iniciamos el /baud rate/ de lacomunicación serial para la transmisión de datos
   Serial.begin(9600);
-  if(Serial){
-    Serial.println("Listo..");  
+  while(Serial){
+    Serial.println("1");
+    delay(5000);  
   }
   //Definimos los pins de cada motor como salidas
   pinMode(stepPinR, OUTPUT);
