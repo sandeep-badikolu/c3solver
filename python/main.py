@@ -1,6 +1,7 @@
 import kociemba
 import config
 import conns
+import solution
 
 # Todo List
 

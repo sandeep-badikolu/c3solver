@@ -3,7 +3,7 @@ import config
 
 def areTwoOrPrime(filteredSolve):
     # No sé filtrar ni usar bien Python, feelsBadMan
-    print("before filtering " + filteredSolve)
+    #debug print("before filtering " + filteredSolve)
     filteredSolve = filteredSolve.replace("D2", "DD")
     filteredSolve = filteredSolve.replace("L2", "LL")
     filteredSolve = filteredSolve.replace("R2", "RR")
