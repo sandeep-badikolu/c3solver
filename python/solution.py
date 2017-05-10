@@ -23,21 +23,23 @@ def getCube():
     return state
 
 def sendSolution():
-    pass
+    for step in listSol:
+        config.ser.write(step)
 
-cube = getCube()
-stdSol = kociemba.solve(cube)
-sol = ''.join(stdSol.split())
-filteredSolve = sol
-config.fSolve = areTwoOrPrime(filteredSolve)
-config.listSol = list(config.fSolve)
-config.length = len(config.listSol)
-#Solución temporal para el null terminator
-config.listSol.append("x")
-#Debug
-# print("Standard output from algorithm " + stdSol)
-# print("No whitespace output " + sol)
-# print("a continuación se imprimirá la solución filtrada de acuerdo al sketch de Arduino ")
-# print("after filtering " + config.fSolve)
-# print(config.listSol)
-# print(config.length)
+if __name__ == '__main__':
+    cube = getCube()
+    stdSol = kociemba.solve(cube)
+    sol = ''.join(stdSol.split())
+    filteredSolve = sol
+    config.fSolve = areTwoOrPrime(filteredSolve)
+    config.listSol = list(config.fSolve)
+    config.length = len(config.listSol)
+    #Solución temporal para el null terminator
+    config.listSol.append("x")
+    #Debug
+    # print("Standard output from algorithm " + stdSol)
+    # print("No whitespace output " + sol)
+    # print("a continuación se imprimirá la solución filtrada de acuerdo al sketch de Arduino ")
+    # print("after filtering " + config.fSolve)
+    # print(config.listSol)
+    # print(config.length)
