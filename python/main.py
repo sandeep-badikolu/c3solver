@@ -3,20 +3,10 @@ import config
 import conns
 import solution
 
-# Todo List
-
-#
-
-def isSerialConnected():
-    # Comprobamos que la conexion se haya completado mandando un byte y leyendo la respuesta del Arduino
-    # Envíamos un 1
-    config.ser.write(b'1')
-
-
 def main():
-    conns.port_and_ser()
-    print(config.ser)
-    #isSerialConnected()
+    conns.startConnection()
+    conns.isSerialConnected()
+    solution.sendSolution()
     #print("Por favor, introduce el estado actual del cubo")
 
 

@@ -42,7 +42,7 @@ void setup() {
 }
 
 void loop() {
-  while(Serial.available()) { // Mientras se reciba algo, añade el paso entrante a la array de solución 
+  while(Serial.available()) { // Mientras se reciba algo, añade el paso entrante a la string de solución 
     char pasoEntrante = (char)Serial.read();
     solution += pasoEntrante;
     
