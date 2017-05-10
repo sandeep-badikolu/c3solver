@@ -15,14 +15,20 @@ def startConnection():
 def isSerialConnected():
     # Comprobamos que la conexion se haya completado mandando un byte y leyendo la respuesta del Arduino
     # Envíamos un 1
-    config.ser.write(b'1')
     s = config.ser.read()
     if(s == b'1'):
-        print("Listo...")
+        return True
+    else:
+        return False
 
 
-# def main():
-#     port_and_ser()
-#
-# if __name__ == '__main__':
-#     main()
+def main():
+    startConnection()
+    cfg = isSerialConnected()
+    if(cfg is True):
+        print("Se conectó")
+    else:
+        print("Hubo un fallo, no se pudo conectar")
+
+if __name__ == '__main__':
+    main()
