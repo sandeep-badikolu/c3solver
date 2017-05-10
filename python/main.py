@@ -11,8 +11,10 @@ import solution
 #
 def main():
     conns.startConnection()
-    conns.isSerialConnected()
-    solution.sendSolution()
+    if(conns.isSerialConnected()):
+        solution.sendSolution()
+    else:
+        print("Error")
     #print("Por favor, introduce el estado actual del cubo")
 
 
