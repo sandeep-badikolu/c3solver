@@ -1,5 +1,5 @@
 # Módulo creado para implementar variables globales de la manera en que la referencia lo indica.
-puerto = ""
+puerto = "/dev/ttyUSB0"
 ser = ""
 baudR = 9600
 fSolve = ""

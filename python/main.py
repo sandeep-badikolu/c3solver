@@ -11,7 +11,7 @@ import solution
 #
 def main():
     conns.startConnection()
-    if(conns.isSerialConnected()):
+    if(conns.isSerialConnected() is True):
         solution.sendSolution()
     else:
         print("Error")

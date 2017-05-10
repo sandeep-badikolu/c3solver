@@ -7,6 +7,10 @@ def startConnection():
     config.puerto = '/dev/tty' + config.puerto # Linux way
     #Si se está en windows, comentar la línea anterior
     config.baudR = input("Ingrese el baud rate deseado, por default es 9600 (enter=default)")
+
+    if(config.baudR = '1'):
+        config.baudR = 9600
+    
     print("El puerto configurado es: " + config.puerto + "\nY el baud rate: " + config.baudR)
 
     config.ser = serial.Serial(config.puerto, config.baudR)
