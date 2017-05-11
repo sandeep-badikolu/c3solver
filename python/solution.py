@@ -18,12 +18,12 @@ def areTwoOrPrime(filteredSolve):
     return filteredSolve
 
 def getCube():
-    state = input("Ingresa el estado atual del cubo")
+    state = input("Ingresa el estado actual del cubo")
     #return 'DRLUUBFBRBLURRLRUBLRDDFDLFUFUFFDBRDUBRUFLLFDDBFLUBLRBD'
     return state
 
 def sendSolution():
-    for step in listSol:
+    for step in config.listSol:
         config.ser.write(step)
 
 if __name__ == '__main__':

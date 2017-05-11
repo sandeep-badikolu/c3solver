@@ -8,9 +8,9 @@ def startConnection():
     #Si se está en windows, comentar la línea anterior
     config.baudR = input("Ingrese el baud rate deseado, por default es 9600 (enter=default)")
 
-    if(config.baudR = '1'):
-        config.baudR = 9600
-    
+    if(config.baudR == '1'):
+        config.baudR = '9600'
+
     print("El puerto configurado es: " + config.puerto + "\nY el baud rate: " + config.baudR)
 
     config.ser = serial.Serial(config.puerto, config.baudR)
@@ -19,8 +19,8 @@ def startConnection():
 def isSerialConnected():
     # Comprobamos que la conexion se haya completado mandando un byte y leyendo la respuesta del Arduino
     # Envíamos un 1
-    s = config.ser.read()
-    if(s == b'1'):
+    s = config.ser.readline()
+    if(s == '1'):
         return True
     else:
         return False

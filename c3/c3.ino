@@ -21,9 +21,14 @@ String solution;
 void setup() {
   //Iniciamos el /baud rate/ de lacomunicación serial para la transmisión de datos
   Serial.begin(9600);
-  while(Serial){
-    Serial.println("1");
-    delay(5000);  
+
+//  for(int i = 0; i < 10; i++){
+//    Serial.println("1");
+//  }
+
+  while(Serial.available() == false){
+    Serial.println("no se hizo la conexión serial");
+    delay(1000);
   }
   //Definimos los pins de cada motor como salidas
   pinMode(stepPinR, OUTPUT);
@@ -46,9 +51,7 @@ void loop() {
   while(Serial.available()) { // Mientras se reciba algo, añade el paso entrante a la string de solución 
     char pasoEntrante = (char)Serial.read();
     solution += pasoEntrante;
-    
-    if(pasoEntrante == "x"){
-      break;
+    Serial.println(pasoEntrante);
     }
   }
   int i;
@@ -187,7 +190,8 @@ void loop() {
         }      
         break;
       default:
-        Serial.print("No se reconoció el movimiento\n");
+        Serial.println("No se reconoció el movimiento");
+        delay(5000);
         break;
     }
   }
