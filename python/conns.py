@@ -3,17 +3,15 @@ import config
 
 def startConnection():
     import conns
-    config.puerto = input("Por favor, ingrese el puerto en el que está conectado el Arduino (defualt=/dev/ttyUSB0)\n")
-    config.puerto = '/dev/tty' + config.puerto # Linux way
+    #config.puerto = input("Por favor, ingrese el puerto en el que está conectado el Arduino (defualt=/dev/ttyUSB0)\n")
+    #config.puerto = '/dev/tty' + config.puerto # Linux way
     #Si se está en windows, comentar la línea anterior
-    config.baudR = input("Ingrese el baud rate deseado, por default es 9600 (enter=default)")
+    #config.baudR = input("Ingrese el baud rate deseado, por default es 9600 (enter=default)")
 
-    if(config.baudR == '1'):
-        config.baudR = '9600'
-
-    print("El puerto configurado es: " + config.puerto + "\nY el baud rate: " + config.baudR)
-
+    #if(config.baudR == '1'):
+#        config.baudR = '9600'
     config.ser = serial.Serial(config.puerto, config.baudR)
+    print("El puerto configurado es: " + config.puerto + "\nY el baud rate: " + config.baudR)
 
 
 def isSerialConnected():
