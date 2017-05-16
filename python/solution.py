@@ -2,7 +2,7 @@ import kociemba
 import config
 
 def areTwoOrPrime(filteredSolve):
-    #debug ""2print("before filtering " + filteredSolve)
+    '''Función que filtra los pasos dobles y primos para facilitar la lectura desde el código ino'''
     filteredSolve = filteredSolve.replace("D2", "DD")
     filteredSolve = filteredSolve.replace("L2", "LL")
     filteredSolve = filteredSolve.replace("R2", "RR")
@@ -18,9 +18,10 @@ def areTwoOrPrime(filteredSolve):
     return filteredSolve
 
 def getCube():
-    state = input("Ingresa el estado actual del cubo")
-    #return 'DRLUUBFBRBLURRLRUBLRDDFDLFUFUFFDBRDUBRUFLLFDDBFLUBLRBD'
-    return state
+    '''Func que le pide al usuario que ingrese, si se logra desarollar el reconocimiento por OpenCV se pasará a colors.py'''
+    #state = input("Ingresa el estado actual del cubo")
+    return 'DRLUUBFBRBLURRLRUBLRDDFDLFUFUFFDBRDUBRUFLLFDDBFLUBLRBD'
+    #return state
 
 def sendSolution():
     startSol()
@@ -29,6 +30,7 @@ def sendSolution():
         print(step)
 
 def startSol():
+    '''Inicialización de todas las variables necesarias, antiguio main del archivo. Se hizo función para llamarla desde sendSolution'''
     cube = getCube()
     stdSol = kociemba.solve(cube)
     sol = ''.join(stdSol.split())
@@ -36,12 +38,5 @@ def startSol():
     config.fSolve = areTwoOrPrime(filteredSolve)
     config.listSol = list(config.fSolve)
     config.length = len(config.listSol)
-    #Solución temporal para el null terminator
+    # Trigger para que la máquina inicie los movimientos
     config.listSol.append("1")
-    #Debug
-    # print("Standard output from algorithm " + stdSol)
-    # print("No whitespace output " + sol)
-    # print("a continuación se imprimirá la solución filtrada de acuerdo al sketch de Arduino ")
-    # print("after filtering " + config.fSolve)
-    # print(config.listSol)
-    # print(config.length)
