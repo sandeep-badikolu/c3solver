@@ -35,7 +35,7 @@ if __name__ == '__main__':
     config.listSol = list(config.fSolve)
     config.length = len(config.listSol)
     #Solución temporal para el null terminator
-    config.listSol.append("x")
+    config.listSol.append("1")
     #Debug
     # print("Standard output from algorithm " + stdSol)
     # print("No whitespace output " + sol)
