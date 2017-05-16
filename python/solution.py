@@ -23,10 +23,12 @@ def getCube():
     return state
 
 def sendSolution():
+    startSol()
     for step in config.listSol:
         config.ser.write(step)
+        print(step)
 
-if __name__ == '__main__':
+def startSol():
     cube = getCube()
     stdSol = kociemba.solve(cube)
     sol = ''.join(stdSol.split())
