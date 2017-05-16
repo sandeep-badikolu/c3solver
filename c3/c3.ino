@@ -23,6 +23,11 @@ void setup() {
   //Iniciamos el /baud rate/ de lacomunicación serial para la transmisión de datos
   Serial.begin(9600);
 
+  for(int i = 0; i < 15; i++){
+    Serial.println("1");
+    delay(1000);
+  }
+  
   //Definimos los pins de cada motor como salidas
   pinMode(stepPinR, OUTPUT);
   pinMode(dirPinR, OUTPUT);
@@ -41,19 +46,29 @@ void setup() {
 void loop() {
   if(Serial.available() == false){
     Serial.println("no se hizo la conexión serial");
+    delay(1000);
     Serial.println("1");
     delay(1000);
   }
   
   else if(Serial.available() > 0) { // Mientras se reciba algo, añade el paso entrante a la string de solución 
     char pasoEntrante = (char)Serial.read();
-    solution += pasoEntrante;
-    Serial.println(pasoEntrante);
+    if(pasoEntrante != '1'){
+      solution += pasoEntrante;
+      Serial.println(pasoEntrante);
+    }
+    else{
+      start = true;
+      Serial.println("Se empezarán a hacer los movimientos...");
+      delay(2000);
+    }
+    delay(1000);
     }
   
 
   else{
     Serial.println("standby");
+    delay(2000);
   }
   
   if(start == true){
@@ -70,6 +85,7 @@ void loop() {
           digitalWrite(stepPinR, LOW);
           delayMicroseconds(500);
         }
+        Serial.println("R");
         break;
         
       case 'L':
@@ -81,6 +97,7 @@ void loop() {
           digitalWrite(stepPinL, LOW);
           delayMicroseconds(500);
         }
+        Serial.println("L");
         break;
         
       case 'U':
@@ -91,7 +108,8 @@ void loop() {
           delayMicroseconds(500);
           digitalWrite(stepPinU, LOW);
           delayMicroseconds(500);
-        }      
+        }
+        Serial.println("U");      
         break;
         
       case 'D':
@@ -102,7 +120,8 @@ void loop() {
           delayMicroseconds(500);
           digitalWrite(stepPinD, LOW);
           delayMicroseconds(500);
-        }      
+        }
+        Serial.println("D");      
         break;
         
       case 'F':
@@ -113,7 +132,8 @@ void loop() {
           delayMicroseconds(500);
           digitalWrite(stepPinF, LOW);
           delayMicroseconds(500);
-        }      
+        }
+        Serial.println("F");      
         break;
         
       case 'B':
@@ -124,7 +144,8 @@ void loop() {
           delayMicroseconds(500);
           digitalWrite(stepPinB, LOW);
           delayMicroseconds(500);
-        }      
+        }
+        Serial.println("B");      
         break;
 
       case 'r':
@@ -135,7 +156,8 @@ void loop() {
           delayMicroseconds(500);
           digitalWrite(stepPinR, LOW);
           delayMicroseconds(500);
-        }      
+        }
+        Serial.println("r");      
         break;
         
       case 'l':
@@ -146,7 +168,8 @@ void loop() {
           delayMicroseconds(500);
           digitalWrite(stepPinL, LOW);
           delayMicroseconds(500);
-        }          
+        }
+        Serial.println("l");          
         break;
         
       case 'u':
@@ -157,7 +180,8 @@ void loop() {
           delayMicroseconds(500);
           digitalWrite(stepPinU, LOW);
           delayMicroseconds(500);
-        }      
+        }
+        Serial.println("u");      
         break;
         
       case 'd':
@@ -168,7 +192,8 @@ void loop() {
           delayMicroseconds(500);
           digitalWrite(stepPinD, LOW);
           delayMicroseconds(500);
-        }     
+        }
+        Serial.println("d");     
         break;
         
       case 'f':
@@ -179,7 +204,8 @@ void loop() {
           delayMicroseconds(500);
           digitalWrite(stepPinF, LOW);
           delayMicroseconds(500);
-        }      
+        }
+        Serial.println("f");      
         break;
         
       case 'b':
@@ -190,7 +216,8 @@ void loop() {
           delayMicroseconds(500);
           digitalWrite(stepPinB, LOW);
           delayMicroseconds(500);
-        }      
+        }
+        Serial.println("b");      
         break;
       default:
         Serial.println("No se reconoció el movimiento");
