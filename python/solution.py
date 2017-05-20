@@ -26,7 +26,7 @@ def getCube():
 def sendSolution():
     startSol()
     for step in config.listSol:
-        config.ser.write(step)
+        #config.ser.write(step)
         print(step)
 
 def startSol():
@@ -40,3 +40,7 @@ def startSol():
     config.length = len(config.listSol)
     # Trigger para que la máquina inicie los movimientos
     config.listSol.append("1")
+
+if __name__ == '__main__':
+    startSol()
+    sendSolution()
