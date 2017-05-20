@@ -76,7 +76,7 @@ void loop() {
     switch(solution.charAt(i)){
       case 'R':
       // Definimos la dirección en la que se moverá el motor, en este caso en sentido horario.
-        digitalWrite(dirPinR, HIGH);
+        digitalWrite(dirPinR, LOW);
         
         // Nuestro motor tiene un ángulo por paso de 1.8 grados, por lo que si queremos que gire 90 grados dividimos 90/1.8 lo que nos da el total de pasos que es 50.
         for(int i = 0; i < 50; i++){
@@ -101,7 +101,7 @@ void loop() {
         break;
         
       case 'U':
-        digitalWrite(dirPinU, HIGH);
+        digitalWrite(dirPinU, LOW);
 
         for(int i = 0; i < 50; i++){
           digitalWrite(stepPinU, HIGH);
@@ -125,7 +125,7 @@ void loop() {
         break;
         
       case 'F':
-        digitalWrite(dirPinF, HIGH);
+        digitalWrite(dirPinF, LOW);
 
         for(int i = 0; i < 50; i++){
           digitalWrite(stepPinF, HIGH);
@@ -149,7 +149,7 @@ void loop() {
         break;
 
       case 'r':
-        digitalWrite(dirPinR, LOW);
+        digitalWrite(dirPinR, HIGH);
 
         for(int i = 0; i < 50; i++){
           digitalWrite(stepPinR, HIGH);
@@ -173,7 +173,7 @@ void loop() {
         break;
         
       case 'u':
-        digitalWrite(dirPinU, LOW);
+        digitalWrite(dirPinU, HIGH);
 
         for(int i = 0; i < 50; i++){
           digitalWrite(stepPinU, HIGH);
@@ -197,7 +197,7 @@ void loop() {
         break;
         
       case 'f':
-        digitalWrite(dirPinF, LOW);
+        digitalWrite(dirPinF, HIGH);
 
         for(int i = 0; i < 50; i++){
           digitalWrite(stepPinF, HIGH);
@@ -220,8 +220,6 @@ void loop() {
         Serial.println("b");      
         break;
       default:
-        Serial.println("No se reconoció el movimiento");
-        delay(5000);
         break;
     }
     }
