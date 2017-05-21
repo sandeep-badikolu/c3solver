@@ -1,6 +1,8 @@
 \documentclass[12pt, letterpaper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows}
 \author{
 Universidad Autónoma de Nuevo León \\
 Facultad de Ingeniería Mecánica y Eléctrica \\
@@ -128,22 +130,53 @@ La idea de crear un robot o máquina que resuelva cubos de Rubik nace del amor q
 \subsection{Propuestas.}
 \paragraph{}
 Teníamos diferentes propuestas para realizar la máquina, diferentes modelos, llegaban a ocupar desde 3 motores o hasta 8 motores. Realizamos una comparación de las ventajas y desventajas de cada tipo de diseño, al final nos decidimos por usar el diseño que tenía 6 motores, ya que al hacerlo así, se nos facilitaría la programación y el diseño no sería tan complicado.
-A continuación se presenta un desarrollo de las propuestas que no elegimos.
+\subsection{Análisis de soluciones.}
 \paragraph{}
 La propuesta que hacía uso de 3 motores normalmente se contruye con el paquete de \emph{Lego Mindstorms}, está construido para que un motor rote el cubo mientras otro giraba la cara que se encontrara en la parte inferior. El motor u eje extra se utilizaba con un sensor de colores, para detectar el estado actual del cubo. Rechazamos esta propuesta ya que no contabamos con el conocimiento necesario para diseñar todas las piezas necesarias, ya que el comprar un kit de Mindstorms no era viable.
-\begin{figure}[hb]
+\begin{figure}[!hb]
 	\centering
 	\includegraphics[width=0.3\linewidth]{images/prop1.jpg}
 	\caption{Robot hecho con Lego} \label{fig:prop1}
 \end{figure}
-La propuesta de 8 motores fue descartada en su mayoría por la complejidad con la cual se había construido,
-\begin{figure}[hb]
+\paragraph{}
+La propuesta de 8 motores fue descartada en su mayoría por la complejidad con la cual se había construido, fue desarrollado por Meccano Kinetics y está basado en las tecnologías de Arduino y Raspberry Pi. El diseño es algo impresionante, está totalmente en otro nivel. Es un proyecto que llevó mucha preparación y conocimientos con los cuales no contamos.
+\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=0.3\linewidth]{images/prop2.png}
-	\caption{Meccano Rubik's Shrine} \label{fig:prop1}
+	\caption{Meccano Rubik's Shrine} \label{fig:prop2}
 \end{figure}
 \paragraph{}
+Incluso hubo varias propuestas para el diseño que llegamos a escoger, a continuación se mostrarán los modelos.
+\subsection{Diseño.}
 
-\subsection{Análisis de soluciones.}
-\subsection{Diseño}
+\tikzstyle{decision} = [diamond, draw, fill=blue!20, 
+    text width=4.5em, text badly centered, node distance=3cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
+    text width=5em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=3cm,
+    minimum height=2em]
+    
+\begin{tikzpicture}[node distance = 2cm, auto]
+    % Place nodes
+    \node [block] (init) {initialize model};
+    \node [cloud, left of=init] (expert) {expert};
+    \node [cloud, right of=init] (system) {system};
+    \node [block, below of=init] (identify) {identify candidate models};
+    \node [block, below of=identify] (evaluate) {evaluate candidate models};
+    \node [block, left of=evaluate, node distance=3cm] (update) {update model};
+    \node [decision, below of=evaluate] (decide) {is best candidate better?};
+    \node [block, below of=decide, node distance=3cm] (stop) {stop};
+    % Draw edges
+    \path [line] (init) -- (identify);
+    \path [line] (identify) -- (evaluate);
+    \path [line] (evaluate) -- (decide);
+    \path [line] (decide) -| node [near start] {yes} (update);
+    \path [line] (update) |- (identify);
+    \path [line] (decide) -- node {no}(stop);
+    \path [line,dashed] (expert) -- (init);
+    \path [line,dashed] (system) -- (init);
+    \path [line,dashed] (system) |- (evaluate);
+\end{tikzpicture}
+
 \end{document}

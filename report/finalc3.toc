@@ -18,7 +18,8 @@
 \contentsline {subsection}{\numberline {2.1}Planteamiento de la idea.}{7}
 \contentsline {subsection}{\numberline {2.2}Propuestas.}{7}
 \contentsline {paragraph}{}{7}
+\contentsline {subsection}{\numberline {2.3}An\IeC {\'a}lisis de soluciones.}{7}
 \contentsline {paragraph}{}{7}
 \contentsline {paragraph}{}{8}
-\contentsline {subsection}{\numberline {2.3}An\IeC {\'a}lisis de soluciones.}{8}
-\contentsline {subsection}{\numberline {2.4}Dise\IeC {\~n}o}{8}
+\contentsline {paragraph}{}{8}
+\contentsline {subsection}{\numberline {2.4}Dise\IeC {\~n}o.}{9}
