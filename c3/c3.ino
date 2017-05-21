@@ -19,6 +19,16 @@ String solution = "";
 // Flag para que inicie los movimientos 
 boolean start = false;
 
+void giro(int pin){
+  for(int i = 0; i < 50; i++){
+    digitalWrite(pin, HIGH);
+    delay(10);
+    digitalWrite(pin, LOW);
+    delay(10);
+  }
+  
+}
+
 void setup() {
   //Iniciamos el /baud rate/ de lacomunicación serial para la transmisión de datos
   Serial.begin(9600);
@@ -65,158 +75,83 @@ void loop() {
     delay(1000);
     }
   
-
   else{
     Serial.println("standby");
     delay(2000);
   }
-  
+ 
   if(start == true){
   for(int i = 0; i < solution.length(); i++){
     switch(solution.charAt(i)){
       case 'R':
-      // Definimos la dirección en la que se moverá el motor, en este caso en sentido horario.
         digitalWrite(dirPinR, LOW);
-        
-        // Nuestro motor tiene un ángulo por paso de 1.8 grados, por lo que si queremos que gire 90 grados dividimos 90/1.8 lo que nos da el total de pasos que es 50.
-        for(int i = 0; i < 50; i++){
-          digitalWrite(stepPinR, HIGH);
-          delayMicroseconds(500);
-          digitalWrite(stepPinR, LOW);
-          delayMicroseconds(500);
-        }
+        giro(stepPinR);
         Serial.println("R");
         break;
         
       case 'L':
         digitalWrite(dirPinL, HIGH);
-
-        for(int i = 0; i < 50; i++){
-          digitalWrite(stepPinL, HIGH);
-          delayMicroseconds(500);
-          digitalWrite(stepPinL, LOW);
-          delayMicroseconds(500);
-        }
+        giro(stepPinL);
         Serial.println("L");
         break;
         
       case 'U':
         digitalWrite(dirPinU, LOW);
-
-        for(int i = 0; i < 50; i++){
-          digitalWrite(stepPinU, HIGH);
-          delayMicroseconds(500);
-          digitalWrite(stepPinU, LOW);
-          delayMicroseconds(500);
-        }
+        giro(stepPinU);
         Serial.println("U");      
         break;
         
       case 'D':
         digitalWrite(dirPinD, HIGH);
-
-        for(int i = 0; i < 50; i++){
-          digitalWrite(stepPinD, HIGH);
-          delayMicroseconds(500);
-          digitalWrite(stepPinD, LOW);
-          delayMicroseconds(500);
-        }
+        giro(stepPinD);
         Serial.println("D");      
         break;
         
       case 'F':
         digitalWrite(dirPinF, LOW);
-
-        for(int i = 0; i < 50; i++){
-          digitalWrite(stepPinF, HIGH);
-          delayMicroseconds(500);
-          digitalWrite(stepPinF, LOW);
-          delayMicroseconds(500);
-        }
+        giro(stepPinF);
         Serial.println("F");      
         break;
         
       case 'B':
         digitalWrite(dirPinB, HIGH);
-
-        for(int i = 0; i < 50; i++){
-          digitalWrite(stepPinB, HIGH);
-          delayMicroseconds(500);
-          digitalWrite(stepPinB, LOW);
-          delayMicroseconds(500);
-        }
+        giro(stepPinB);
         Serial.println("B");      
         break;
 
       case 'r':
         digitalWrite(dirPinR, HIGH);
-
-        for(int i = 0; i < 50; i++){
-          digitalWrite(stepPinR, HIGH);
-          delayMicroseconds(500);
-          digitalWrite(stepPinR, LOW);
-          delayMicroseconds(500);
-        }
+        giro(stepPinR);
         Serial.println("r");      
         break;
         
       case 'l':
         digitalWrite(dirPinL, LOW);
-
-        for(int i = 0; i < 50; i++){
-          digitalWrite(stepPinL, HIGH);
-          delayMicroseconds(500);
-          digitalWrite(stepPinL, LOW);
-          delayMicroseconds(500);
-        }
+        giro(stepPinL);
         Serial.println("l");          
         break;
         
       case 'u':
         digitalWrite(dirPinU, HIGH);
-
-        for(int i = 0; i < 50; i++){
-          digitalWrite(stepPinU, HIGH);
-          delayMicroseconds(500);
-          digitalWrite(stepPinU, LOW);
-          delayMicroseconds(500);
-        }
+        giro(stepPinU);
         Serial.println("u");      
         break;
         
       case 'd':
         digitalWrite(dirPinD, LOW);
-
-        for(int i = 0; i < 50; i++){
-          digitalWrite(stepPinD, HIGH);
-          delayMicroseconds(500);
-          digitalWrite(stepPinD, LOW);
-          delayMicroseconds(500);
-        }
+        giro(stepPinD);
         Serial.println("d");     
         break;
         
       case 'f':
         digitalWrite(dirPinF, HIGH);
-
-        for(int i = 0; i < 50; i++){
-          digitalWrite(stepPinF, HIGH);
-          delayMicroseconds(500);
-          digitalWrite(stepPinF, LOW);
-          delayMicroseconds(500);
-        }
+        giro(stepPinF);
         Serial.println("f");      
         break;
         
       case 'b':
         digitalWrite(dirPinB, LOW);
-
-        for(int i = 0; i < 50; i++){
-          digitalWrite(stepPinB, HIGH);
-          delayMicroseconds(500);
-          digitalWrite(stepPinB, LOW);
-          delayMicroseconds(500);
-        }
+        giro(stepPinB);
         Serial.println("b");      
         break;
       default:
