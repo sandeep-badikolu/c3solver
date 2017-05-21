@@ -30,8 +30,6 @@ def startSol():
     config.listSol = list(config.fSolve)
     # Trigger para que la máquina inicie los movimientos
     config.listSol.append("1")
-    print(config.listSol)
 
 if __name__ == '__main__':
-    startSol()
-    #sendSolution()
+    sendSolution()

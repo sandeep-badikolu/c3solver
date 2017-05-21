@@ -3,7 +3,7 @@ import config
 
 def startConnection():
     import conns
-    config.puerto = input("Por favor, ingrese el puerto en el que está conectado el Arduino\n")
+    config.puerto = input("Por favor, ingrese el puerto en el que esta conectado el Arduino\n")
     config.ser = serial.Serial(config.puerto, config.baudR)
     print("El puerto configurado es: " + config.puerto + "\nY el baud rate: " + config.baudR)
 
@@ -20,7 +20,7 @@ def main():
     startConnection()
     cfg = isSerialConnected()
     if(cfg is True):
-        print("Se conectó")
+        print("Se conecto")
     else:
         print("Hubo un fallo, no se pudo conectar")
 
