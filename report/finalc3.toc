@@ -1,0 +1,24 @@
+\contentsline {section}{\numberline {1}Introducci\IeC {\'o}n.}{1}
+\contentsline {subsection}{\numberline {1.1}Historia del cubo de Rubik.}{1}
+\contentsline {paragraph}{}{1}
+\contentsline {paragraph}{}{2}
+\contentsline {paragraph}{}{2}
+\contentsline {subsection}{\numberline {1.2}Mecanismo del cubo.}{2}
+\contentsline {paragraph}{}{2}
+\contentsline {paragraph}{}{3}
+\contentsline {paragraph}{}{3}
+\contentsline {subsection}{\numberline {1.3}Variaciones.}{3}
+\contentsline {paragraph}{}{3}
+\contentsline {subsection}{\numberline {1.4}Algoritmos de soluci\IeC {\'o}n.}{4}
+\contentsline {paragraph}{}{4}
+\contentsline {subsection}{\numberline {1.5}Soluciones \IeC {\'o}ptimas.}{5}
+\contentsline {paragraph}{}{5}
+\contentsline {paragraph}{}{6}
+\contentsline {section}{\numberline {2}Desarrollo}{7}
+\contentsline {subsection}{\numberline {2.1}Planteamiento de la idea.}{7}
+\contentsline {subsection}{\numberline {2.2}Propuestas.}{7}
+\contentsline {paragraph}{}{7}
+\contentsline {paragraph}{}{7}
+\contentsline {paragraph}{}{8}
+\contentsline {subsection}{\numberline {2.3}An\IeC {\'a}lisis de soluciones.}{8}
+\contentsline {subsection}{\numberline {2.4}Dise\IeC {\~n}o}{8}
