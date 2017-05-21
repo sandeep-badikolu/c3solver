@@ -33,7 +33,7 @@ void setup() {
   //Iniciamos el /baud rate/ de lacomunicación serial para la transmisión de datos
   Serial.begin(9600);
 
-  for(int i = 0; i < 15; i++){
+  for(int i = 0; i < 5; i++){
     Serial.println("1");
     delay(1000);
   }
@@ -55,109 +55,103 @@ void setup() {
 
 void loop() {
   if(Serial.available() == false){
-    Serial.println("no se hizo la conexión serial");
-    delay(1000);
-    Serial.println("1");
-    delay(1000);
+    Serial.println("standby");
+    delay(2000);
   }
-  
   else if(Serial.available() > 0) { // Mientras se reciba algo, añade el paso entrante a la string de solución 
     char pasoEntrante = (char)Serial.read();
     if(pasoEntrante != '1'){
       solution += pasoEntrante;
-      Serial.println(pasoEntrante);
+      //Serial.println(pasoEntrante);
     }
     else{
       start = true;
-      Serial.println("Se empezarán a hacer los movimientos...");
-      delay(2000);
+      Serial.println("Se empezaran a hacer los movimientos...");
+      delay(1000);
     }
-    delay(1000);
-    }
-  
-  else{
-    Serial.println("standby");
-    delay(2000);
   }
- 
-  if(start == true){
-  for(int i = 0; i < solution.length(); i++){
-    switch(solution.charAt(i)){
-      case 'R':
-        digitalWrite(dirPinR, LOW);
-        giro(stepPinR);
-        Serial.println("R");
-        break;
-        
-      case 'L':
-        digitalWrite(dirPinL, HIGH);
-        giro(stepPinL);
-        Serial.println("L");
-        break;
-        
-      case 'U':
-        digitalWrite(dirPinU, LOW);
-        giro(stepPinU);
-        Serial.println("U");      
-        break;
-        
-      case 'D':
-        digitalWrite(dirPinD, HIGH);
-        giro(stepPinD);
-        Serial.println("D");      
-        break;
-        
-      case 'F':
-        digitalWrite(dirPinF, LOW);
-        giro(stepPinF);
-        Serial.println("F");      
-        break;
-        
-      case 'B':
-        digitalWrite(dirPinB, HIGH);
-        giro(stepPinB);
-        Serial.println("B");      
-        break;
 
-      case 'r':
-        digitalWrite(dirPinR, HIGH);
-        giro(stepPinR);
-        Serial.println("r");      
-        break;
-        
-      case 'l':
-        digitalWrite(dirPinL, LOW);
-        giro(stepPinL);
-        Serial.println("l");          
-        break;
-        
-      case 'u':
-        digitalWrite(dirPinU, HIGH);
-        giro(stepPinU);
-        Serial.println("u");      
-        break;
-        
-      case 'd':
-        digitalWrite(dirPinD, LOW);
-        giro(stepPinD);
-        Serial.println("d");     
-        break;
-        
-      case 'f':
-        digitalWrite(dirPinF, HIGH);
-        giro(stepPinF);
-        Serial.println("f");      
-        break;
-        
-      case 'b':
-        digitalWrite(dirPinB, LOW);
-        giro(stepPinB);
-        Serial.println("b");      
-        break;
-      default:
-        break;
-    }
-    }
-  }
+  if(start == true){
+    Serial.println(solution);
+    for(int i = 0; i < solution.length(); i++){
+      switch(solution.charAt(i)){
+        case 'R':
+          digitalWrite(dirPinR, LOW);
+          giro(stepPinR);
+          Serial.println("R");
+          break;
+          
+        case 'L':
+          digitalWrite(dirPinL, HIGH);
+          giro(stepPinL);
+          Serial.println("L");
+          break;
+          
+        case 'U':
+          digitalWrite(dirPinU, LOW);
+          giro(stepPinU);
+          Serial.println("U");      
+          break;
+          
+        case 'D':
+          digitalWrite(dirPinD, HIGH);
+          giro(stepPinD);
+          Serial.println("D");      
+          break;
+          
+        case 'F':
+          digitalWrite(dirPinF, LOW);
+          giro(stepPinF);
+          Serial.println("F");      
+          break;
+          
+        case 'B':
+          digitalWrite(dirPinB, HIGH);
+          giro(stepPinB);
+          Serial.println("B");      
+          break;
   
+        case 'r':
+          digitalWrite(dirPinR, HIGH);
+          giro(stepPinR);
+          Serial.println("r");      
+          break;
+          
+        case 'l':
+          digitalWrite(dirPinL, LOW);
+          giro(stepPinL);
+          Serial.println("l");          
+          break;
+          
+        case 'u':
+          digitalWrite(dirPinU, HIGH);
+          giro(stepPinU);
+          Serial.println("u");      
+          break;
+          
+        case 'd':
+          digitalWrite(dirPinD, LOW);
+          giro(stepPinD);
+          Serial.println("d");     
+          break;
+          
+        case 'f':
+          digitalWrite(dirPinF, HIGH);
+          giro(stepPinF);
+          Serial.println("f");      
+          break;
+          
+        case 'b':
+          digitalWrite(dirPinB, LOW);
+          giro(stepPinB);
+          Serial.println("b");      
+          break;
+        default:
+          Serial.println("Solución terminada");
+          break;
+      }
+      int limit = solution.length() - 1; 
+      if(i == limit) start = false;
+      }
+  }
 }
