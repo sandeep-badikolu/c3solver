@@ -1,4 +1,4 @@
-# Módulo creado para implementar variables globales de la manera en que la referencia lo indica.
+# coding = utf-8
 puerto = ''
 ser = ''
 baudR = '9600'
