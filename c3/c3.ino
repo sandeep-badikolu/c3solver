@@ -147,7 +147,6 @@ void loop() {
           Serial.println("b");      
           break;
         default:
-          Serial.println("Solución terminada");
           break;
       }
       int limit = solution.length() - 1; 
