@@ -26,7 +26,6 @@ void giro(int pin){
     digitalWrite(pin, LOW);
     delay(10);
   }
-  
 }
 
 void setup() {
@@ -62,7 +61,7 @@ void loop() {
     char pasoEntrante = (char)Serial.read();
     if(pasoEntrante != '1'){
       solution += pasoEntrante;
-      //Serial.println(pasoEntrante);
+      Serial.println(pasoEntrante);
     }
     else{
       start = true;
