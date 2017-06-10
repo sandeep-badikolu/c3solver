@@ -15,19 +15,20 @@ def areTwoOrPrime(filteredSolve):
     filteredSolve = filteredSolve.replace("F'", "f")
     filteredSolve = filteredSolve.replace("B'", "b")
     filteredSolve = filteredSolve.replace("U'", "u")
+    filteredSolve += '1'
     return filteredSolve
 
 def getCube():
     '''Func que le pide al usuario que ingrese, si se logra desarollar el reconocimiento por OpenCV se pasará a colors.py'''
-    #state = input("Ingresa el estado actual del cubo")
-    return 'DRLUUBFBRBLURRLRUBLRDDFDLFUFUFFDBRDUBRUFLLFDDBFLUBLRBD'
-    #return state
+    state = input("Ingresa el estado actual del cubo")
+    return state
 
 def sendSolution():
     startSol()
     for step in config.listSol:
-        #config.ser.write(step)
-        print(step)
+        bstep = step.encode('ascii')
+        config.ser.write(bstep)
+        print(bstep)
 
 def startSol():
     '''Inicialización de todas las variables necesarias, antiguio main del archivo. Se hizo función para llamarla desde sendSolution'''
@@ -37,10 +38,6 @@ def startSol():
     filteredSolve = sol
     config.fSolve = areTwoOrPrime(filteredSolve)
     config.listSol = list(config.fSolve)
-    config.length = len(config.listSol)
-    # Trigger para que la máquina inicie los movimientos
-    config.listSol.append("1")
 
 if __name__ == '__main__':
-    startSol()
     sendSolution()

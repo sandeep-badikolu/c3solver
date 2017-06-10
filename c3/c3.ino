@@ -31,11 +31,6 @@ void giro(int pin){
 void setup() {
   //Iniciamos el /baud rate/ de lacomunicación serial para la transmisión de datos
   Serial.begin(9600);
-
-  for(int i = 0; i < 5; i++){
-    Serial.println("1");
-    delay(1000);
-  }
   
   //Definimos los pins de cada motor como salidas
   pinMode(stepPinR, OUTPUT);
@@ -54,14 +49,17 @@ void setup() {
 
 void loop() {
   if(Serial.available() == false){
-    Serial.println("standby");
+    Serial.println("1");
     delay(2000);
   }
   else if(Serial.available() > 0) { // Mientras se reciba algo, añade el paso entrante a la string de solución 
     char pasoEntrante = (char)Serial.read();
-    if(pasoEntrante != '1'){
+    if(pasoEntrante != '1' && pasoEntrante != '2'){
       solution += pasoEntrante;
       Serial.println(pasoEntrante);
+    }
+    else if(pasoEntrante == '2'){
+      Serial.println(solution);
     }
     else{
       start = true;
@@ -149,7 +147,10 @@ void loop() {
           break;
       }
       int limit = solution.length() - 1; 
-      if(i == limit) start = false;
+      if(i == limit){
+        start = false;
+        solution = "";
+      }
       }
   }
 }
