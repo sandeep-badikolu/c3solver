@@ -6,7 +6,7 @@ import solution
 
 def main():
     conns.startConnection() # Función que inicia la conexion serial con el Arduino
-    time.sleep(2) # Esperamos 5 segundos para verificar si la conexion funcionó
+    time.sleep(2) # Esperamos 2 segundos para verificar si la conexion funcionó
     if(conns.isSerialConnected() == True):
         print("Se mandará la solución")
         solution.sendSolution()
